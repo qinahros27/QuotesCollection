@@ -13,7 +13,7 @@ This project uses basic HTML elements to create a quotes page.
 ## Project structure
 ```
 .
-└───fs15_1-basic-html
+└───QuotesCollection
     └───components
         └───footer.scss
         └───header.scss
