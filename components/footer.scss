@@ -1,0 +1,69 @@
+@use "../variable/colors" as colors;
+
+footer {
+    color: white;
+    display: inline-flex;
+    width: 100%;
+    padding: 10px;
+}
+
+.footer-button {
+    position: relative;
+    height: 40px;
+    width: 200px;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: 20px;
+}
+.footer-button button{
+    width: 180px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: colors.$primary-color;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    animation-name: button-move;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;   
+    z-index: 2%;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes button-move {
+    from {bottom: 0;}
+     to {top: 0;}
+}
+
+.footer-button button:hover {
+    margin-top: -5px;
+}
+
+.footer-in {
+    display: inline-flex;
+    width: 1400px;
+    justify-content: space-around;
+}
+
+.navigation-bar-bar.footer-nav {
+    font-size: 14px;
+}
+
+.footer-text p {
+    margin-left: 40px;
+    font-size: 12px;
+    font-weight: bold;
+    color: lightgray;
+    margin-top: 20px;
+}
+
+.footer-icon i{
+    margin-left: 10px; 
+    font-size: 18px;
+}
+
+.footer-icon i:hover{
+    color: colors.$button-color-hover;
+}

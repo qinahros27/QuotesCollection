@@ -1,0 +1,611 @@
+@use "../variable/colors" as colors;
+@use "./mixins.scss" as mixins;
+main {
+    background-color: black;
+    color: white;
+}
+
+/* navigation section */
+
+.navigation-bar {
+    width: 100%;
+    height: 100px;
+    display:flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.navigation-bar-in {
+    width: 85%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation-bar_name p {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.navigation-bar_menu {
+    display:inline-block;
+}
+
+.navigation-bar_menu {
+    a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    } 
+
+    ul {
+        list-style-type: none; 
+    }
+
+    li {
+        display: inline-block;
+        position: relative; 
+        padding-right: 10px;
+        margin-right: 10px;
+    }
+
+    li::before {
+        content: "*"; 
+        position: absolute; 
+        top: 0; 
+        right: 0; 
+        color: black;
+    }
+
+    li:nth-child(8):before {
+        content: "";
+    }
+
+    li:nth-child(1):before {
+        color: yellow;
+    }
+
+    li:hover::before {
+        color:grey;
+    }
+}
+  
+.fa-magnifying-glass {
+    color:white;
+}
+
+
+
+/* pin quotes sections */
+.pin-quotes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.pin-quotes-in {
+    display: grid;
+    grid-template-areas: 
+    "one two three"
+    "one four five";
+    gap: 15px;
+    width: 1200px;
+    height: 400px;
+
+}
+
+.pin-quotes-items-button button{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 50px;
+    height: 15px;
+    font-size: 6px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+}
+
+.button-quotes-two button{
+    color: blue;
+}
+
+.button-quotes-three button{
+    color: rgb(255, 191, 0);
+    background-color: black;
+}
+
+.button-quotes-four button{
+    color: rgb(148,0,211);
+}
+
+.button-quotes-five button{
+    color: rgb(210, 4, 45);
+    background-color: black;
+}
+
+.pin-quotes-items:hover {
+    margin-top: -5px;
+}
+
+.pin-quotes-items:nth-child(1) {
+    grid-area: one;
+    background-image: url("./pictures/moti1.jpg");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 450px;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+
+// @mixin theme($color,$image) {
+//     background: linear-gradient($color, $color), $image;
+//     background-position: center; 
+//     background-repeat: no-repeat;
+//     background-size: cover; 
+// }
+
+%draw-border {
+    padding: 5px;
+    border-radius: 30px;
+}
+
+.pin-quotes-items:nth-child(2) {
+    grid-area: two;
+    @include mixins.theme($color: colors.$pin-quote-second-items, $image: url("./pictures/moti2.jpg")); 
+    @extend %draw-border;
+}
+
+.pin-quotes-items:nth-child(3) {
+    grid-area: three;
+    @include mixins.theme($color: colors.$pin-quote-third-items, $image: url("./pictures/moti3.jpg"));   
+    @extend %draw-border;
+}
+
+.pin-quotes-items:nth-child(4) {
+    grid-area: four;
+    @include mixins.theme($color: colors.$pin-quote-fourth-items, $image: url("./pictures/moti4.jpg"));
+    @extend %draw-border;
+}
+
+.pin-quotes-items:nth-child(5) {
+    grid-area: five;
+    @include mixins.theme($color: colors.$pin-quote-fifth-items, $image: url("./pictures/moti5.jpeg"));
+    @extend %draw-border;
+}
+
+.pin-quotes-items-text.big {
+   margin-top: 240px;
+   font-weight: bold;
+   font-size: 20px;
+   margin-left: 20px;
+}
+
+.pin-quotes-items-text {
+   margin-top: 50px;
+   font-weight: bold;
+   font-size: 16px;
+   margin-left: 20px;
+}
+
+.pin-quotes-items-text.odd {
+    color: black;
+}
+
+/* more-quotes sections */
+.more-quotes {
+    display:flex;
+    justify-content: center;
+}
+
+.more-quotes-items {
+    width: 1000px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.more-quotes-items-in {
+    width: 800px; 
+}
+
+// @mixin quotes-theme($image) {
+//     background-image: $image;
+//     background-position: center; 
+//     background-repeat: no-repeat;
+//     background-size: cover; 
+//     transition: background-size 0.5s ease;
+// }
+
+.more-quotes-items:nth-child(1) {
+    @include mixins.quotes-theme(url('./pictures/moti6.png'));
+}
+
+.more-quotes-items:nth-child(1):hover {
+    background-size: 120%;
+}
+
+.more-quotes-items:nth-child(2) {
+    @include mixins.theme($color: colors.$more-quotes-second-items, $image: url("./pictures/moti11.jpeg"));
+    transition: background-size 0.5s ease;
+}
+
+.more-quotes-items:nth-child(2):hover {
+    background-size: 150%;
+}
+
+.more-quotes-items:nth-child(3) {
+    @include mixins.quotes-theme(url('./pictures/moti8.jpg'));
+}
+
+.more-quotes-items:nth-child(3):hover {
+    background-size: 105%;
+}
+
+%button-design {
+    font-size: 8px;
+    letter-spacing: 2px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: black;
+    font-weight: bold;
+}
+
+%button-design-color {
+    background-color: black;
+    color:white;
+}
+
+.more-quotes-items-button {
+    button{
+        @extend %button-design;
+    }
+    button:hover{
+        @extend %button-design-color;
+    }
+}
+
+.more-quotes-items-text {
+    margin-top:15px;
+    h2 {
+        font-size: 30px;
+        line-height: 1;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+        span {
+            color: transparent;
+        }
+    }
+    h2:hover span {
+        color: black;
+    }
+    p {
+        font-weight: bold;
+        color: black;
+        margin-top: 15px;
+    }
+}
+
+.more-quotes-items-text-added {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    width: 600px;
+    span {
+        text-decoration: overline;
+    }
+}
+
+
+/* other-articles section */
+.other-articles {
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.other-articles-in {
+    width: 1000px;
+}
+
+.other-articles-in-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.other-articles-one {
+    display: inline-flex;
+    width: 1000px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.articles {
+    width: 480px;
+    height: 400px;
+    display: flex;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.articles:nth-child(1) {
+    @include mixins.theme($color: colors.$articles-first, $image: url("./pictures/moti7.png"));
+    transition: background-size 0.5s ease;
+}
+
+.articles:nth-child(1):hover {
+    background-size: 200%;
+}
+
+.articles:nth-child(2) {
+    @include mixins.theme($color: colors.$articles-second, $image: url("./pictures/moti9.jpg"));
+    transition: background-size 0.5s ease;
+}
+
+.articles:nth-child(2):hover {
+    background-size: 150%;
+}
+
+.articles-in {
+    width: 430px;
+    margin-left: 20px;
+    margin-top: 80px;
+    font-weight: bold;
+    color: black;
+}
+
+.articles-in button { 
+    @extend %button-design;
+}
+
+.articles-in button:hover {
+    @extend %button-design-color;
+}
+
+.articles-in-text {
+    margin-top: 20px;
+    h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+        span {
+            color: transparent;
+        }
+    }
+    h2:hover span {
+        color: black;
+    }
+}
+
+.articles-in-text-added {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    span{
+        text-decoration: overline;
+    }
+}
+
+.other-articles-two {
+    width: 1000px;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.article-two {
+    width: 310px;
+    height: 400px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.article-two:nth-child(1) {
+    @include mixins.theme($color: colors.$article-two-first-items, $image: url("./pictures/moti10.png"));
+    transition: background-size 0.5s ease;
+}
+
+.article-two:nth-child(1):hover {
+    background-size: 250%;
+}
+
+.article-two:nth-child(2) {
+    @include mixins.theme($color: colors.$article-two-second-items, $image: url("./pictures/moti12.jpg"));
+    transition: background-size 0.5s ease;
+}
+
+.article-two:nth-child(2):hover {
+    background-size: 200%;
+}
+
+.article-two:nth-child(3) {
+    @include mixins.theme($color: colors.$article-two-third-items, $image: url("./pictures/moti13.jpg"));
+    transition: background-size 0.5s ease;
+}
+
+.article-two:nth-child(3):hover {
+    background-size: 200%;
+}
+
+.article-two-in {
+    margin-left: 20px;
+    margin-top: 80px;
+    width: 280px;
+    button { 
+        font-size: 8px;
+        letter-spacing: 2px;
+        background-color: transparent;
+        border-radius: 10px;
+        border: 1px solid white;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    button:hover {
+        color: black;
+        background-color: white;
+    }
+
+}
+
+.article-two-in.middle button {
+    color: black;
+    border: 1px solid black;
+}
+
+.article-two-in.middle button:hover {
+    color: white;
+    background-color: black;
+}
+
+.articles-two-in-text {
+    h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+        span {
+            color: transparent;
+        }
+    } 
+    h2:hover span {
+        color: white;
+    } 
+}
+
+.articles-two-in-text.middle h2:hover span {
+    color: black;
+}
+
+.articles-two-in-text.middle {
+    color: black;
+}
+
+.articles-two-in-text-added {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    span {
+        text-decoration: overline;
+    }
+}
+
+.other-articles-button-load {
+    text-align: center;
+    button {
+        width: 700px;
+        height: 50px;
+        color: white;
+        background-color: colors.$button-load-submit-color;
+        font-weight: bold;
+        letter-spacing: 2px;
+        border-radius: 10px;
+        border: none;
+    }
+    button:hover {
+        color:colors.$button-load-submit-color;
+        font-weight:normal;
+        background-color: colors.$button-color-hover;
+        width: 750px;
+        transition: width .2s ease-in-out;
+    }
+}
+
+/* subscribe section */
+.subscribe {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.subscribe-in {
+    width: 600px;
+    text-align: center;
+    h2 {
+        text-align: center;
+        font-size: 35px;
+        width: 400px;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+    button {
+        width: 150px;
+        height: 50px;
+        letter-spacing: 2px;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        font-weight: bold;
+        background-color: colors.$button-load-submit-color;
+        margin-top: 20px;
+    }
+    button:hover {
+        color:colors.$button-load-submit-color;
+        font-weight:normal;
+        background-color: colors.$button-color-hover;
+        width: 160px;
+        transition: width .2s ease-in-out;
+    }
+}
+
+.subscribe-in-text {
+    width: 230px;
+    margin: 20px auto;
+    p{
+        animation: typing 6s steps(50) infinite alternate,blinking 2s infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: left;
+        width: fit-content;
+        font-size: 16px;
+        border-right: 2px solid white; 
+        font-weight: bold;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinking {
+    0% {
+        border-right: none;
+    }
+    50% {
+        border-right: 1px solid white;
+    }
+}
+
+.subscribe-in-input {
+    margin-top: 20px;
+    margin-bottom:20px;
+    text-align: center;
+    input {
+        outline: none;
+        border: none;
+        border-bottom: 2px solid white;
+        text-align: center;
+        padding: 5px;
+        color:white;
+        font-weight: bold;
+        width: 350px;
+        height: 30px;
+        font-size: 14px;
+        background-color: black;
+    }
+    input:hover {
+        width: 500px;
+        transition: width .2s ease-in-out;
+    }
+}

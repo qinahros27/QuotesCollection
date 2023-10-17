@@ -1,0 +1,14 @@
+@mixin theme($color,$image) {
+    background: linear-gradient($color, $color), $image;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+@mixin quotes-theme($image) {
+    background-image: $image;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    transition: background-size 0.5s ease;
+}
