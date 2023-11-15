@@ -1,5 +1,5 @@
 # Introduction
-This project uses basic HTML elements to create a quotes page.
+This project uses basic HTML elements to create a quotes page
 
 ## Table of content
 - Technologies
